@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Register"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="field_name" min="-2" pref="209" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="field_surname" min="-2" pref="209" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="field_login" min="-2" pref="209" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="field_email" min="-2" pref="209" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="field_passwordre" min="-2" pref="209" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="button_cancel" min="-2" pref="209" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="button_register" min="-2" pref="209" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="combobox_age" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="field_password" min="-2" pref="209" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="field_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_surname" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="field_login" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="field_email" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="combobox_age" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="field_password" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="field_passwordre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="button_register" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="button_cancel" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JTextField" name="field_name">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="name"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="field_nameFocusGained"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_surname">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="surname"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="field_surnameFocusGained"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_login">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="login"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="field_loginFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="field_loginFocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="field_email">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="e-mail"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="field_emailFocusGained"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="field_password">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="password"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="field_passwordFocusGained"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="field_passwordre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="field_passwordreFocusGained"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Password:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Re-enter password:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Baskerville" size="48" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Register"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="button_register">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Register"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_registerActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="button_cancel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancel"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_cancelActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Age:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="combobox_age">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="81">
+            <StringItem index="0" value="18"/>
+            <StringItem index="1" value="19"/>
+            <StringItem index="2" value="20"/>
+            <StringItem index="3" value="21"/>
+            <StringItem index="4" value="22"/>
+            <StringItem index="5" value="23"/>
+            <StringItem index="6" value="24"/>
+            <StringItem index="7" value="25"/>
+            <StringItem index="8" value="26"/>
+            <StringItem index="9" value="27"/>
+            <StringItem index="10" value="28"/>
+            <StringItem index="11" value="29"/>
+            <StringItem index="12" value="30"/>
+            <StringItem index="13" value="31"/>
+            <StringItem index="14" value="32"/>
+            <StringItem index="15" value="33"/>
+            <StringItem index="16" value="34"/>
+            <StringItem index="17" value="35"/>
+            <StringItem index="18" value="36"/>
+            <StringItem index="19" value="37"/>
+            <StringItem index="20" value="38"/>
+            <StringItem index="21" value="39"/>
+            <StringItem index="22" value="40"/>
+            <StringItem index="23" value="41"/>
+            <StringItem index="24" value="42"/>
+            <StringItem index="25" value="43"/>
+            <StringItem index="26" value="44"/>
+            <StringItem index="27" value="45"/>
+            <StringItem index="28" value="46"/>
+            <StringItem index="29" value="47"/>
+            <StringItem index="30" value="48"/>
+            <StringItem index="31" value="49"/>
+            <StringItem index="32" value="50"/>
+            <StringItem index="33" value="51"/>
+            <StringItem index="34" value="52"/>
+            <StringItem index="35" value="53"/>
+            <StringItem index="36" value="54"/>
+            <StringItem index="37" value="55"/>
+            <StringItem index="38" value="56"/>
+            <StringItem index="39" value="57"/>
+            <StringItem index="40" value="58"/>
+            <StringItem index="41" value="59"/>
+            <StringItem index="42" value="60"/>
+            <StringItem index="43" value="61"/>
+            <StringItem index="44" value="62"/>
+            <StringItem index="45" value="63"/>
+            <StringItem index="46" value="64"/>
+            <StringItem index="47" value="66"/>
+            <StringItem index="48" value="67"/>
+            <StringItem index="49" value="68"/>
+            <StringItem index="50" value="69"/>
+            <StringItem index="51" value="70"/>
+            <StringItem index="52" value="71"/>
+            <StringItem index="53" value="72"/>
+            <StringItem index="54" value="73"/>
+            <StringItem index="55" value="74"/>
+            <StringItem index="56" value="75"/>
+            <StringItem index="57" value="76"/>
+            <StringItem index="58" value="77"/>
+            <StringItem index="59" value="78"/>
+            <StringItem index="60" value="79"/>
+            <StringItem index="61" value="80"/>
+            <StringItem index="62" value="81"/>
+            <StringItem index="63" value="82"/>
+            <StringItem index="64" value="83"/>
+            <StringItem index="65" value="84"/>
+            <StringItem index="66" value="85"/>
+            <StringItem index="67" value="86"/>
+            <StringItem index="68" value="87"/>
+            <StringItem index="69" value="88"/>
+            <StringItem index="70" value="89"/>
+            <StringItem index="71" value="90"/>
+            <StringItem index="72" value="91"/>
+            <StringItem index="73" value="92"/>
+            <StringItem index="74" value="93"/>
+            <StringItem index="75" value="94"/>
+            <StringItem index="76" value="95"/>
+            <StringItem index="77" value="96"/>
+            <StringItem index="78" value="97"/>
+            <StringItem index="79" value="98"/>
+            <StringItem index="80" value="99"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+  </SubComponents>
+</Form>
