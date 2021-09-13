@@ -6,11 +6,8 @@ all rights reserved
 package com.jakubwawak.gui;
 
 import com.jakubwawak.database.Database;
-import com.jakubwawak.tick2.Tick_User;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *Object for creating login window
@@ -27,6 +24,8 @@ public class GUI_login_window extends javax.swing.JFrame {
         this.database = database;
         initComponents();
         this.setLocationRelativeTo(null);
+        label_version.setText(database.program_version);
+        label_build.setText(database.program_build);
         setVisible(true);
     }
 
@@ -45,6 +44,8 @@ public class GUI_login_window extends javax.swing.JFrame {
         button_login = new javax.swing.JButton();
         button_cancel = new javax.swing.JButton();
         button_register = new javax.swing.JButton();
+        label_version = new javax.swing.JLabel();
+        label_build = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Log in to Tick2");
@@ -87,6 +88,10 @@ public class GUI_login_window extends javax.swing.JFrame {
             }
         });
 
+        label_version.setText("jLabel2");
+
+        label_build.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,7 +99,8 @@ public class GUI_login_window extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
+                        .addComponent(label_build, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -107,12 +113,18 @@ public class GUI_login_window extends javax.swing.JFrame {
                             .addComponent(field_password)
                             .addComponent(button_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(label_version)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel1))
+                    .addComponent(label_build))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(field_login, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -123,7 +135,8 @@ public class GUI_login_window extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_cancel)
                     .addComponent(button_register))
-                .addGap(0, 31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(label_version))
         );
 
         pack();
@@ -193,5 +206,7 @@ public class GUI_login_window extends javax.swing.JFrame {
     private javax.swing.JTextField field_login;
     private javax.swing.JPasswordField field_password;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel label_build;
+    private javax.swing.JLabel label_version;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,6 +19,7 @@ public class message_window extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         label_message.setText(message);
+        label_message.setEditable(false);
         setVisible(true);
     }
 
@@ -31,14 +32,13 @@ public class message_window extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label_message = new javax.swing.JLabel();
         button_confirm = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        label_message = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Wiadomosc");
-
-        label_message.setText("Message");
+        setTitle("Message");
 
         button_confirm.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         button_confirm.setText("OK");
@@ -50,6 +50,10 @@ public class message_window extends javax.swing.JDialog {
 
         jLabel1.setText("by JW");
 
+        label_message.setColumns(20);
+        label_message.setRows(5);
+        jScrollPane1.setViewportView(label_message);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -57,20 +61,20 @@ public class message_window extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_message, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 35, Short.MAX_VALUE)
                         .addComponent(button_confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel1)
-                        .addContainerGap())))
+                        .addComponent(jLabel1))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(label_message, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(button_confirm, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -88,6 +92,7 @@ public class message_window extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_confirm;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel label_message;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea label_message;
     // End of variables declaration//GEN-END:variables
 }

@@ -32,8 +32,7 @@ import javax.mail.MessagingException;
  * @author jakubwawak
  */
 public class GUI_main_window extends javax.swing.JFrame {
-    
-    final String GUI_version = "v2.0.0A1";
+
     public Database database;
     public Options options;
     GUI_Window_Manager window_manager;
@@ -65,7 +64,7 @@ public class GUI_main_window extends javax.swing.JFrame {
         
         options.run();
         
-        Tick_LABEL_tick_version.setText(GUI_version);
+        Tick_LABEL_tick_version.setText(database.program_version+"("+database.program_build+")");
         window_manager.reload_default_scene_tick();
         
         setLocationRelativeTo(null);
@@ -391,21 +390,21 @@ public class GUI_main_window extends javax.swing.JFrame {
                     .addComponent(LIST_button_sendasemail, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
                     .addComponent(LIST_textfield_listname))
                 .addGap(18, 18, 18)
-                .addGroup(list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(list_panelLayout.createSequentialGroup()
                         .addGap(162, 162, 162)
                         .addComponent(LIST_label_info2))
-                    .addGroup(list_panelLayout.createSequentialGroup()
-                        .addComponent(LIST_button_addticktolist, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, list_panelLayout.createSequentialGroup()
+                        .addComponent(LIST_button_addticktolist, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LIST_button_deleteticklist, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LIST_button_deletelist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LIST_button_edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))
                 .addContainerGap())
         );
         list_panelLayout.setVerticalGroup(
@@ -441,7 +440,7 @@ public class GUI_main_window extends javax.swing.JFrame {
                         .addComponent(LIST_button_deletelist)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane6)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         tabbed_panel.addTab("List", list_panel);

@@ -6,8 +6,10 @@ all rights reserved
 package com.jakubwawak.tick2;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -33,19 +35,20 @@ public class Configuration {
      *  - - comment section
      */
     
-    String raw_path;
+    public String raw_path;
     
-    ArrayList<String> lines;    // object for storing raw 
-    BufferedReader reader;      // reader for reading data from file
+    ArrayList<String> lines;           // object for storing raw 
+    BufferedReader reader;             // reader for reading data from file
     
     public boolean read;               // flag for checking if file is read
     public boolean validation;
+    public boolean error;
     //--------------------database data--------------
     public String database_ip;
     public String database_name;
     public String database_user;
     public String database_pass;
-    public String state;        // for using gui or cui interface
+    public String state;              // for using gui or cui interface
     //-----------------------------------------------
     /**
      * Constructor
@@ -63,10 +66,44 @@ public class Configuration {
         database_user = "";
         database_pass = "";
         state = "";
-        
         validation = false;
+        
+        File test = new File(raw_path);
+        error = !test.exists();
+        if (!error){
+            System.out.println("Configuration file found!");
+        }
+        else{
+            System.out.println("Configuration file not found");
+        }
     }
     
+    /**
+     * Function for saving configuration to file
+     * @throws IOException 
+     */
+    public void save_to_file() throws IOException{
+        /**
+        * - configuration file for Tick2
+        * - that how you can start comment
+        * #databasename# tick_database 
+        * #databaseip# localhost
+        * #databaseuser# entrc_client
+        * #databasepass# password
+         */
+        try{
+            FileWriter writer = new FileWriter(raw_path);
+            writer.write("- configuration file for Tick2\n");
+            writer.write("#databasename# "+this.database_name+"\n");
+            writer.write("#databaseip# "+this.database_ip+"\n");
+            writer.write("#databaseuser# "+this.database_user+"\n");
+            writer.write("#databasepass# "+this.database_pass+"\n");
+            writer.write("#state# gui");
+            writer.close();
+        }catch(IOException e){
+            error = true;
+        }
+    }
     /**
      * Function for trimming data
      * @param line 

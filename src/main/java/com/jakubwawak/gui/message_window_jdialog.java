@@ -41,7 +41,7 @@ public class message_window_jdialog extends javax.swing.JDialog {
         textfield_message = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Wiadomość");
+        setTitle("Message");
 
         button_ok.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         button_ok.setText("OK");

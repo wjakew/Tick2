@@ -34,8 +34,8 @@ import com.jakubwawak.tick2.Tick_User;
  */
 public class Database {
     
-    final String version = "v1.0.8";
-    
+    final String version = "v1.0.9";
+    public String program_build,program_version;
     final String HEADER = "DATABASE ("+version+")";
     
     // database connection data
@@ -74,7 +74,11 @@ public class Database {
             log.add("Config not found. Setting standard connection",HEADER);
         }
     }
+    
     //----------------------------maintanance and optional methods
+    /**
+     * Function for connecting to database
+     */
     public void connect(){
         try{
             log.add("Set connection data: "+ip+"/"+database_name+"/"+database_user+"/|"+database_password+"|",HEADER);
@@ -96,6 +100,38 @@ public class Database {
             connected = false;
         }
     }
+    /**
+     * Function for connection by given ip
+     * @param ip
+     * @param db_name
+     * @param user
+     * @param password 
+     */
+    public void connect(String ip,String db_name,String user,String password){
+        try{
+            log.add("Set connection data: "+ip+"/"+db_name+"/"+user+"/|"+password+"|",HEADER);
+            con = DriverManager.getConnection("jdbc:mysql://"+ip+"/"+db_name+"?"
+                + "useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&" +
+                                   "user="+user+"&password="+password);
+            this.log.add("Connected: "+con.toString(),"DATABASE");
+            connected = true;
+            
+            database_data = database_data + "Connected to "+con.toString()+"\n";
+            database_data = database_data + "Connected at "+date.toString()+"\n";
+            database_data = database_data + "Build number: "+get_buildnumber()+"\n";
+            database_data = database_data + "Database version: "+check_database_version();
+            this.database_name = db_name;
+            this.database_user = user;
+            this.ip = ip;
+            this.database_password = password;
+        }catch(SQLException ex){
+            this.log.add("SQLException: " + ex.getMessage(),HEADER);
+            this.log.add("SQLState: " + ex.getSQLState(),HEADER);
+            this.log.add("VendorError: " + ex.getErrorCode(),HEADER); 
+            connected = false;
+        }
+    }
+    
     /**
      * Database.check_database_version()
      * @return String

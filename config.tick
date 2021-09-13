@@ -1,0 +1,6 @@
+- configuration file for Tick2
+#databasename# tick_database
+#databaseip# localhost
+#databaseuser# root
+#databasepass# password
+#state# gui
