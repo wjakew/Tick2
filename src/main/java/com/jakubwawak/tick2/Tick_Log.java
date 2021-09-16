@@ -20,7 +20,7 @@ public class Tick_Log {
     final String version = "v1.0.3";
     
     // set to 0 when deploying
-    int debug = 0;
+    public int debug = 0;
     
     public ArrayList<String> log_lines;
     String LOG_SRC = "LOG_TICKPROGRAM_";

@@ -68,6 +68,7 @@ public class GUI_share_window extends javax.swing.JDialog {
         button_history = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Share");
 
         textarea_tick_details.setColumns(20);
         textarea_tick_details.setRows(5);

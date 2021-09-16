@@ -19,9 +19,9 @@ import java.util.Scanner;
  * @author jakub
  */
 public class UI_Interface {
-    final String version = "v1.1.4";
+    final String version = "v1.1.5";
     
-    Scanner sc;                     // main object for scanning 
+    Scanner sc;                            // main object for scanning 
     public ArrayList<String> history;      // main log of the input,output
     Console console;
     
@@ -35,6 +35,7 @@ public class UI_Interface {
     public int last_und;
     public boolean int_flag = false;       // variable used to flag if number found in input
     public boolean blank = true;           // variable set if input is blank
+    public boolean number_input = false;   // variable for checking if input is only a number/float/double
     public int last_input;
     
     public String last_string;
@@ -128,12 +129,29 @@ public class UI_Interface {
         if ( avoid_function() || !input.isEmpty() ){
             blank = false;
         }
+        number_input = check_input_number(input);
         if ( !avoid.contains(input)){
             last_string = input;
         }
         raw_input = input;
         count();
         return input;
+    }
+    
+    /**
+     * Function for checking if input is a number
+     * @param data
+     * @return boolean
+     */
+    public boolean check_input_number(String data){
+        try{
+            Integer.parseInt(data);
+            Double.parseDouble(data);
+            Float.parseFloat(data);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
     
     /**

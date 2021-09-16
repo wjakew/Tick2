@@ -75,6 +75,7 @@ public class GUI_addscene_window extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("New Scene");
 
         scenename_textfield.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         scenename_textfield.setText("Scene Name");

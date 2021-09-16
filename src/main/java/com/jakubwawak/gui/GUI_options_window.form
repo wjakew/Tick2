@@ -27,15 +27,15 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButton1" max="32767" attributes="0"/>
-                  <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="button_resetpassword" max="32767" attributes="0"/>
+                  <Component id="button_database" alignment="0" max="32767" attributes="0"/>
                   <Component id="combobox_welcome" max="32767" attributes="0"/>
                   <Component id="combobox_gui" alignment="0" pref="341" max="32767" attributes="0"/>
                   <Component id="checkbox_autocheck" min="-2" max="-2" attributes="0"/>
                   <Component id="checkbox_fastlogin" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Component id="checkbox_debug" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton3" max="32767" attributes="0"/>
+                  <Component id="button_configurationset" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
@@ -57,21 +57,24 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="combobox_welcome" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <Component id="button_database" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="button_resetpassword" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+              <Component id="button_configurationset" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="36" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="button_resetpassword">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reset password"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_resetpasswordActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -86,10 +89,13 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="button_database">
       <Properties>
         <Property name="text" type="java.lang.String" value="Database connection data"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_databaseActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="combobox_welcome">
       <Properties>
@@ -140,10 +146,13 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="button_configurationset">
       <Properties>
         <Property name="text" type="java.lang.String" value="Set configuration file to default"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_configurationsetActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

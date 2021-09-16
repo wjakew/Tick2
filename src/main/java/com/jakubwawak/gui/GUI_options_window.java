@@ -8,8 +8,6 @@ package com.jakubwawak.gui;
 import com.jakubwawak.database.Database;
 import com.jakubwawak.tick2.Configuration;
 import com.jakubwawak.tick2.Options;
-import java.io.IOException;
-import java.sql.SQLException;
 
 /**
  *Function for creating window for options
@@ -42,26 +40,36 @@ public class GUI_options_window extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        button_resetpassword = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         checkbox_debug = new javax.swing.JCheckBox();
-        jButton2 = new javax.swing.JButton();
+        button_database = new javax.swing.JButton();
         combobox_welcome = new javax.swing.JComboBox<>();
         checkbox_fastlogin = new javax.swing.JCheckBox();
         checkbox_autocheck = new javax.swing.JCheckBox();
         combobox_gui = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        button_configurationset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Options");
 
-        jButton1.setText("Reset password");
+        button_resetpassword.setText("Reset password");
+        button_resetpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_resetpasswordActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Number of entries:");
 
         checkbox_debug.setText("Debug - if checked log is saved to file");
 
-        jButton2.setText("Database connection data");
+        button_database.setText("Database connection data");
+        button_database.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_databaseActionPerformed(evt);
+            }
+        });
 
         combobox_welcome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blank", "Scenes", "Ticks", "Lists", " " }));
         combobox_welcome.setToolTipText("Welcome screen setup");
@@ -73,7 +81,12 @@ public class GUI_options_window extends javax.swing.JDialog {
         combobox_gui.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GUI - Graphical User Interface", "CUI - Console User Interface" }));
         combobox_gui.setToolTipText("Setting for choosing interfaces");
 
-        jButton3.setText("Set configuration file to default");
+        button_configurationset.setText("Set configuration file to default");
+        button_configurationset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_configurationsetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,15 +95,15 @@ public class GUI_options_window extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(button_resetpassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(button_database, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(combobox_welcome, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(combobox_gui, 0, 341, Short.MAX_VALUE)
                     .addComponent(checkbox_autocheck)
                     .addComponent(checkbox_fastlogin)
                     .addComponent(jLabel1)
                     .addComponent(checkbox_debug)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(button_configurationset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,16 +122,29 @@ public class GUI_options_window extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(combobox_welcome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(button_database)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(button_resetpassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(button_configurationset)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void button_databaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_databaseActionPerformed
+        new GUI_connection_window(this,true,database.config,database);
+    }//GEN-LAST:event_button_databaseActionPerformed
+
+    private void button_configurationsetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_configurationsetActionPerformed
+        database.config = new Configuration("config.tick");
+        new message_window_jdialog(this,true,"Configuration reloaded");
+    }//GEN-LAST:event_button_configurationsetActionPerformed
+
+    private void button_resetpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_resetpasswordActionPerformed
+        new GUI_reset_password(this,true,database);
+    }//GEN-LAST:event_button_resetpasswordActionPerformed
 
     /**
      * Function for preparing components
@@ -133,18 +159,26 @@ public class GUI_options_window extends javax.swing.JDialog {
         if ( options.auto_shares == 1){
             checkbox_autocheck.setSelected(true);
         }
+        if( database.config.state.equals("gui") ){
+            combobox_gui.setSelectedIndex(0);
+        }
+        else{
+            combobox_gui.setSelectedIndex(1);
+        }
     }
+    
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_configurationset;
+    private javax.swing.JButton button_database;
+    private javax.swing.JButton button_resetpassword;
     public javax.swing.JCheckBox checkbox_autocheck;
     public javax.swing.JCheckBox checkbox_debug;
     public javax.swing.JCheckBox checkbox_fastlogin;
     public javax.swing.JComboBox<String> combobox_gui;
     public javax.swing.JComboBox<String> combobox_welcome;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

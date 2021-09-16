@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class Options_Viewer {
     
-    final String version = "v1.1.0";
+    final String version = "v1.2.0";
     Options options;
     UI_Interface ui;
     UI_Interface old;
@@ -30,16 +30,17 @@ public class Options_Viewer {
     // menus to show
     
     public ArrayList<String> main_menu_list = new ArrayList<String>() {{
-            add("1. Status");
-            add("2. Me");
-            add("3. General view options");
-            add("4. Information");
-            add("5. Debug options");
-            add("6. Fast login settings");
-            add("7. Input data history");
-            add("8. User Interface debug");
-            add("9. Input history");
+            add(" 1. Status");
+            add(" 2. Me");
+            add(" 3. General view options");
+            add(" 4. Information");
+            add(" 5. Debug options");
+            add(" 6. Fast login settings");
+            add(" 7. Input data history");
+            add(" 8. User Interface debug");
+            add(" 9. Input history");
             add("10. Dump log");
+            add("11. Debug log info");
             add("exit.");
             }};
     
@@ -61,9 +62,9 @@ public class Options_Viewer {
             }};
     
     public ArrayList<String> main_menu_info = new ArrayList<String>(){{
-            add("TICK GSD Program");
+            add("TICK2 Program");
             add("made by Jakub Wawak");
-            add("all rights reserved 2020");
+            add("all rights reserved 2021");
             add("");
             add("All questions and bugs You can send to:");
             add("kubawawak@gmail.com");
@@ -73,6 +74,12 @@ public class Options_Viewer {
             add("Fast login option:");
             add("1.Set");
             add("2.Clear");
+    }};
+    
+    public ArrayList<String> main_menu_debuglog = new ArrayList<String>(){{
+        add("Debug log state");
+        add("0. OFF");
+        add("1. ON");
     }};
 
     // main constructor
@@ -166,8 +173,13 @@ public class Options_Viewer {
             else if (user_input.equals("9")){
                 CUI_OPT_FUN_input_data_h(words);
             }
+            // log dump
             else if (user_input.equals("10")){
                 CUI_OPT_FUN_dump_log(words);
+            }
+            // debug log state
+            else if (user_input.equals("11")){
+                CUI_OPT_FUN_debug_log(words);
             }
             // exit
             else if (user_input.equals("exit")){
@@ -223,6 +235,28 @@ public class Options_Viewer {
         else{
             _viewer(options.show_data(),5);
         } 
+    }
+    
+    void CUI_OPT_FUN_debug_log(List<String> addons) throws SQLException{
+        if ( options.internal_fail ){
+            ui.interface_print("Internal fail of options");
+        }
+        else{
+            _viewer(main_menu_debuglog,5);
+            ui.interface_get();
+            
+            if (ui.int_flag){
+                if (options.update_debug_log(ui.last_input)){
+                    ui.interface_print("Updated value");
+                }
+                else{
+                    ui.interface_print("Error");
+                }
+            }
+            else{
+                ui.interface_print("Wrong input");
+            }
+        }
     }
     
     void CUI_OPT_FUN_dump_log(List<String> addons) throws SQLException{

@@ -548,7 +548,6 @@ public class GUI_main_window extends javax.swing.JFrame {
         Tick_LABEL_tick_version.setText("Tick version 2.0.0A1");
 
         button_options.setText("Options");
-        button_options.setEnabled(false);
         button_options.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_optionsActionPerformed(evt);

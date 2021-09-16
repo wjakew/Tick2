@@ -32,12 +32,12 @@ public class Tick {
      * 1 - log showing on screen
      * 0 - log not showing on screen, still saving to file
      */
-    static int debug_log = 1;
+    static int debug_log = 0;
     
     
-    static final String version = "v2.0.1";
+    static final String version = "v2.0.2";
     static final String HEADER = "TICK MAIN";
-    static final String build = "1309201REV1";
+    static final String build = "1509202REV1";
     
     static Tick_Log session_log;
     static Database database;
@@ -52,8 +52,8 @@ public class Tick {
                         "|_   _(_) ___| | _|___ \\ \n" +
                         "  | | | |/ __| |/ / __) |\n" +
                         "  | | | | (__|   < / __/ \n" +
-                        "  |_| |_|\\___|_|\\_\\_____|\n";
-        header = header+"by JAKUB WAWAK   "+version+"\n";
+                        "  |_| |_|\\___|_|\\_\\_____| "+version+"("+build+")\n";
+        header = header+"     by JAKUB WAWAK\n";
         System.out.println(header);
         
         // initialization of the modules
@@ -130,7 +130,7 @@ public class Tick {
             database = new Database(session_log,config);
             // error reading the file
             new message_window(null,true,"Error while reading the file.\n Configuration file not found");
-            new GUI_connection_window(null,true,config,database);
+            new GUI_connection_window(config,database);
             // debug
             if ( debug == 1){
                 System.out.println("CURRENT SESSION IS DEBUG");

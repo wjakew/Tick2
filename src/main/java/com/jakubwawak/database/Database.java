@@ -34,7 +34,7 @@ import com.jakubwawak.tick2.Tick_User;
  */
 public class Database {
     
-    final String version = "v1.0.9";
+    final String version = "v1.1.0";
     public String program_build,program_version;
     final String HEADER = "DATABASE ("+version+")";
     
@@ -46,12 +46,12 @@ public class Database {
     // end of database connection data
     
     public Connection con = null;          // connection to the database
-    ResultSet rs = null;            // result set of the query
+    ResultSet rs = null;                   // result set of the query
     public boolean connected = false;
     public Tick_User logged;               // actual logged user on the database
     public Tick_Log log;                   // program log saver
-    Configuration config;
-    String database_data;           // for storing data
+    public Configuration config;
+    String database_data;                  // for storing data
     Date date;
     
     /**

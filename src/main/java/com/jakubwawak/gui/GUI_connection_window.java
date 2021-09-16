@@ -8,8 +8,6 @@ package com.jakubwawak.gui;
 import com.jakubwawak.database.Database;
 import com.jakubwawak.tick2.Configuration;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *Function for creating new configuration
@@ -31,6 +29,22 @@ public class GUI_connection_window extends javax.swing.JDialog {
         setVisible(true);
     }
     
+    public GUI_connection_window(javax.swing.JDialog parent, boolean modal,Configuration config,Database database) {
+        super(parent, modal);
+        this.config = config;
+        this.database = database;
+        initComponents();
+        this.setLocationRelativeTo(null);
+        setVisible(true);
+    }
+    
+    public GUI_connection_window(Configuration config,Database database) {
+        this.config = config;
+        this.database = database;
+        initComponents();
+        this.setLocationRelativeTo(null);
+        setVisible(true);
+    }
     /**
      * Function for loading fields and connecting to databas
      */

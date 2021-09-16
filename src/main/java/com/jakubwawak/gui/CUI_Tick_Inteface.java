@@ -107,6 +107,7 @@ public class CUI_Tick_Inteface {
         ui.interface_print("Loading options data..");
         if ( options.run() == 1 ){
             ui.interface_print("Options record made and loaded");
+            database.log.debug = Integer.parseInt(options.debug_log);
         }
         else{
             ui.interface_print("Options data loaded");

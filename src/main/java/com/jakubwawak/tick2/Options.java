@@ -38,7 +38,7 @@ public class Options {
         );
      */
     
-    final String version = "v1.0.2";
+    final String version = "v1.0.3";
     final String HEADER = "OPTIONS "+version;
     public Database database;
     
@@ -50,6 +50,7 @@ public class Options {
     int sum_entries;
     public int auto_shares;
     public String auto_login;
+    public String debug_log;
     
     public Options(Database database) throws SQLException{
         
@@ -133,7 +134,8 @@ public class Options {
         *       ret codes: ( 1 - auto load shares | 0 - opposite )
         conf4 VARCHAR(40),  -- fast login
         *       ret codes: ( x - user login | 'blank' - fast login not configured )
-        conf5 VARCHAR(40),  -- free
+        conf5 VARCHAR(40),  -- debug log
+        *       ret codes: ( '1' - print login to screen | '0' - no printing 
         conf6 VARCHAR(40),  -- free
         conf7 VARCHAR(40),  -- free
          */
@@ -143,7 +145,7 @@ public class Options {
         ppst.setString(4,"blank");
         ppst.setInt(5,0);
         ppst.setString(6,"");
-        ppst.setString(7,"");
+        ppst.setString(7,"1");
         ppst.setString(8,"");
         ppst.setString(9,"");
         database.log.add("Query : ("+ppst.toString()+")",HEADER);
@@ -200,7 +202,8 @@ public class Options {
         *       ret codes: ( 1 - auto load shares | 0 - opposite )
         conf4 VARCHAR(40),  -- fast login
         *       ret codes: ( x - user login | 'blank' - fast login not configured )
-        conf5 VARCHAR(40),  -- free
+        conf5 VARCHAR(40),  -- debug log
+        *       ret codes: ( '1' - print login to screen | '0' - no printing 
         conf6 VARCHAR(40),  -- free
         conf7 VARCHAR(40),  -- free
          */
@@ -220,7 +223,7 @@ public class Options {
                 sum_entries = rs.getInt("sum_entries");
                 auto_shares = rs.getInt("conf3");
                 auto_login = rs.getString("conf4");
-                
+                debug_log = rs.getString("conf5");
                 // here add more of functionalities stored in the database
                 database.log.add("Options data loaded successfully",HEADER);
                 return true;
@@ -258,6 +261,7 @@ public class Options {
         else{
             to_ret.add("         - logs are not stored");
         }
+        to_ret.add("Debug log: "+debug_log);
         to_ret.add("Welcome screen: "+welcome_screen);
         to_ret.add("Number of entries: "+Integer.toString(sum_entries));
         to_ret.add("Auto share: "+Integer.toString(auto_shares));
@@ -371,8 +375,52 @@ public class Options {
             database.log.add("Failed to read debug info from database",HEADER+"E!!!");
             return -2;
         }
+    }
+    
+    /**
+     * Function for loading debug log
+     * @return Integer
+     * @throws SQLException 
+     */
+    int get_debug_log() throws SQLException{
+        String query = "SELECT conf5 from CONFIGURATION where owner_id = ?;";
         
+        try{
+            PreparedStatement ppst = database.con.prepareCall(query);
+            
+            ppst.setInt(1,database.logged.owner_id);
+            
+            ResultSet rs = ppst.executeQuery();
+            
+            if ( rs.next() ){
+                return Integer.parseInt(rs.getString("conf5"));
+            }
+            return -1;
+        }catch(SQLException e){
+            database.log.add("Failed to get database log data ("+e.toString(),HEADER+"E!!!");
+            return -2;
+        }
+    }
+    
+    /**
+     * Function for updating debug log info
+     * @param debug_log
+     * @return Boolean
+     * @throws SQLException 
+     */
+    boolean update_debug_log(int debug_log) throws SQLException{
+        String query = "UPDATE CONFIGURATION SET conf5 = ? where owner_id = ?";
+        PreparedStatement ppst = database.con.prepareStatement(query);
+        ppst.setInt(1,debug_log);
+        ppst.setInt(2,database.logged.owner_id);
         
+        try{
+            ppst.execute();
+            return true;
+        }catch(SQLException e){
+            database.log.add("Failed to update debug log info ("+e.toString()+")",HEADER+"E!!!");
+            return false;
+        } 
     }
     
     /**
