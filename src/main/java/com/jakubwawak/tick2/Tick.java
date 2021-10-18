@@ -5,6 +5,7 @@ all rights reserved
  */
 package com.jakubwawak.tick2;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import com.jakubwawak.database.Database;
 import com.jakubwawak.gui.CUI_Tick_Inteface;
 import com.jakubwawak.gui.GUI_connection_window;
@@ -35,9 +36,9 @@ public class Tick {
     static int debug_log = 0;
     
     
-    static final String version = "v2.0.2";
+    static final String version = "v2.0.3";
     static final String HEADER = "TICK MAIN";
-    static final String build = "1509202REV1";
+    static final String build = "18102021REV1";
     
     static Tick_Log session_log;
     static Database database;
@@ -48,6 +49,7 @@ public class Tick {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException, SQLException, MessagingException {
+        FlatLightLaf.setup();
         String header = " _____ _      _    ____  \n" +
                         "|_   _(_) ___| | _|___ \\ \n" +
                         "  | | | |/ __| |/ / __) |\n" +

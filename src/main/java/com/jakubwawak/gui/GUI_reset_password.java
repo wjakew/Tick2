@@ -52,8 +52,6 @@ public class GUI_reset_password extends javax.swing.JDialog {
 
         jLabel2.setText("New password:");
 
-        field_newpassword2.setText("jPasswordField1");
-
         jLabel3.setText("Re-type new password:");
 
         button_reset.setText("Reset password");

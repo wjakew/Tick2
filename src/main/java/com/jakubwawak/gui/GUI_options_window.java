@@ -80,6 +80,11 @@ public class GUI_options_window extends javax.swing.JDialog {
 
         combobox_gui.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GUI - Graphical User Interface", "CUI - Console User Interface" }));
         combobox_gui.setToolTipText("Setting for choosing interfaces");
+        combobox_gui.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                combobox_guiMousePressed(evt);
+            }
+        });
 
         button_configurationset.setText("Set configuration file to default");
         button_configurationset.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +150,10 @@ public class GUI_options_window extends javax.swing.JDialog {
     private void button_resetpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_resetpasswordActionPerformed
         new GUI_reset_password(this,true,database);
     }//GEN-LAST:event_button_resetpasswordActionPerformed
+
+    private void combobox_guiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combobox_guiMousePressed
+        System.out.println("test");
+    }//GEN-LAST:event_combobox_guiMousePressed
 
     /**
      * Function for preparing components

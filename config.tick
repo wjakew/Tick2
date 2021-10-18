@@ -3,4 +3,4 @@
 #databaseip# localhost
 #databaseuser# root
 #databasepass# password
-#state# cui
+#state# gui

@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.MessagingException;
+import javax.swing.ImageIcon;
 
 /**
  *Main GUI window of the program
@@ -66,9 +67,21 @@ public class GUI_main_window extends javax.swing.JFrame {
         
         Tick_LABEL_tick_version.setText(database.program_version+"("+database.program_build+")");
         window_manager.reload_default_scene_tick();
-        
+        load_window_icon();
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+    
+     /**
+     * Function for loading window icon
+     */
+    void load_window_icon(){
+        try{
+            ImageIcon img = new ImageIcon("icon.png");
+            this.setIconImage(img.getImage());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**
